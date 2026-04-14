@@ -8,45 +8,49 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-set(CMAKE_PROJECT_NAME BEEP-BEEP)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-project(${CMAKE_PROJECT_NAME} C ASM)
+project(BEEP-BEEP C ASM)
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-file(GLOB_RECURSE USER_SOURCES CONFIGURE_DEPENDS "core/src/*.c")
-file(GLOB_RECURSE FW_SOURCES "drivers/STM32F10x_StdPeriph_Driver/src/*.c")
-file(GLOB_RECURSE CMSIS_SOURCES "drivers/cmsis/*.c")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(STARTUP_SCRIPT "startup/startup_stm32f103xe.s")
+file(GLOB_RECURSE FW_SOURCES CONFIGURE_DEPENDS "drivers/STM32F10x_StdPeriph_Driver/src/*.c")
+file(GLOB_RECURSE CMSIS_SOURCES CONFIGURE_DEPENDS "drivers/cmsis/*.c")
 
-add_executable(${CMAKE_PROJECT_NAME}
-        ${USER_SOURCES}
+set(STARTUP_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/startup/startup_stm32f103xe.s")
+
+set(APP_COMMON_SOURCES
+        core/src/main.c
+        core/src/music_data.c
+        core/src/stm32f10x_it.c
+        core/src/system_stm32f10x.c
+)
+
+add_executable(${PROJECT_NAME}
+        ${APP_COMMON_SOURCES}
         ${FW_SOURCES}
         ${CMSIS_SOURCES}
         ${STARTUP_SCRIPT}
 )
 
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+target_include_directories(${PROJECT_NAME} PRIVATE
         core/inc
-        core/src
         drivers/cmsis
         drivers/STM32F10x_StdPeriph_Driver/inc
 )
 
-target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
+target_compile_definitions(${PROJECT_NAME} PRIVATE
         USE_STDPERIPH_DRIVER
         STM32F10X_HD
 )
 
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+target_compile_options(${PROJECT_NAME} PRIVATE
         -ffunction-sections
         -fdata-sections
 )
 
-target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
+target_link_options(${PROJECT_NAME} PRIVATE
         -specs=nosys.specs
-        -Wl,-Map=${CMAKE_PROJECT_NAME}.map
+        -Wl,-Map=${PROJECT_NAME}.map
         -Wl,--gc-sections
 )
 
