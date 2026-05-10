@@ -1,5 +1,9 @@
 .idea/
+.skill/
+.vscode/
 build/
+target/
 .DS_Store
 .siliconloop
 AGENTS.md
+*.docx
