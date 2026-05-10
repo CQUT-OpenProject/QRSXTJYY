@@ -1,0 +1,17 @@
+[default.general]
+chip = "STM32F103RC"
+
+[default.rtt]
+enabled = false
+
+[default.flashing]
+enabled = true
+restore_unwritten_bytes = false
+
+[default.reset]
+enabled = true
+halt_afterwards = false
+
+[default.gdb]
+enabled = false
+gdb_connection_string = "127.0.0.1:1337"
