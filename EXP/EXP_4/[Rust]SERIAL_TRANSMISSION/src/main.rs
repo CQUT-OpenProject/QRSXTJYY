@@ -1,22 +1,33 @@
-#![no_std]
-#![no_main]
+#![cfg_attr(target_arch = "arm", no_std)]
+#![cfg_attr(target_arch = "arm", no_main)]
 
+#[cfg(target_arch = "arm")]
 use core::fmt::{self, Write};
 
+#[cfg(target_arch = "arm")]
 use cortex_m_rt::entry;
+#[cfg(target_arch = "arm")]
 use panic_halt as _;
+#[cfg(target_arch = "arm")]
 use stm32f1xx_hal::pac;
 
+#[cfg(target_arch = "arm")]
 const USART1_BRR: u32 = 0x45; // 配置 USART1 115200 波特率，8 MHz 时钟
+#[cfg(target_arch = "arm")]
 const INPUT_BUFFER_LEN: usize = 64; // 串口输入缓冲区长度
+#[cfg(target_arch = "arm")]
 const DEBOUNCE: u8 = 4;
+#[cfg(target_arch = "arm")]
 const KEY_SAMPL_FRQ: u16 = 20000; // 按键采样频率
+#[cfg(target_arch = "arm")]
 const WAIT_SERIAL: u16 = 40000; // 等待串口输入完成的循环次数
 
+#[cfg(target_arch = "arm")]
 struct Uart1 {
     usart: pac::USART1,
 }
 
+#[cfg(target_arch = "arm")]
 impl Uart1 {
     // 发送一个字节
     fn write_byte(&mut self, byte: u8) {
@@ -45,6 +56,7 @@ impl Uart1 {
     }
 }
 
+#[cfg(target_arch = "arm")]
 impl Write for Uart1 {
     // 串口打印字符串
     fn write_str(&mut self, text: &str) -> fmt::Result {
@@ -56,12 +68,14 @@ impl Write for Uart1 {
     }
 }
 
+#[cfg(target_arch = "arm")]
 struct Button {
     stable: bool, // 当前状态
     last_raw: bool, // 上一次读取的状态
     count: u8, // 连续读到相同原始状态的次数
 }
 
+#[cfg(target_arch = "arm")]
 impl Button {
     // 初始化按钮状态
     fn new(pressed: bool) -> Self {
@@ -94,6 +108,7 @@ impl Button {
 }
 
 // 初始化时钟、GPIO 和 USART1
+#[cfg(target_arch = "arm")]
 fn setup_clock_gpio_usart(dp: &pac::Peripherals) {
     dp.RCC.apb2enr.modify(|_, w| {
         w
@@ -171,19 +186,23 @@ fn setup_clock_gpio_usart(dp: &pac::Peripherals) {
     });
 }
 
+#[cfg(target_arch = "arm")]
 fn read_key0_pressed(gpioc: &pac::GPIOC) -> bool {
     gpioc.idr.read().idr5().bit_is_clear()
 }
 
+#[cfg(target_arch = "arm")]
 fn read_key1_pressed(gpioa: &pac::GPIOA) -> bool {
     gpioa.idr.read().idr15().bit_is_clear()
 }
 
+#[cfg(target_arch = "arm")]
 fn read_wkup_pressed(gpioa: &pac::GPIOA) -> bool {
     gpioa.idr.read().idr0().bit_is_set()
 }
 
 // 发送按键消息
+#[cfg(target_arch = "arm")]
 fn send_key_message(uart: &mut Uart1, name: &str, pressed: bool) {
     if pressed {
         let _ = write!(uart, "{name} keydown\r\n");
@@ -193,6 +212,7 @@ fn send_key_message(uart: &mut Uart1, name: &str, pressed: bool) {
 }
 
 // 处理串口输入
+#[cfg(target_arch = "arm")]
 fn handle_serial_input(uart: &mut Uart1, input: &mut [u8; INPUT_BUFFER_LEN], idx: &mut usize) -> bool {
     let mut received = false;
 
@@ -221,6 +241,7 @@ fn handle_serial_input(uart: &mut Uart1, input: &mut [u8; INPUT_BUFFER_LEN], idx
 }
 
 // 处理一行输入，计算结果并发送回串口
+#[cfg(target_arch = "arm")]
 fn process_line(uart: &mut Uart1, line: &[u8]) {
     match calculate(line) {
         Some(result) => {
@@ -234,11 +255,13 @@ fn process_line(uart: &mut Uart1, line: &[u8]) {
 }
 
 // 判断是否是应该忽略的边界字节（空格、制表符、引号）
+#[cfg(target_arch = "arm")]
 fn is_ignored_edge_byte(byte: u8) -> bool {
     byte == b' ' || byte == b'\t' || byte == b'"'
 }
 
 // 计算表达式结果
+#[cfg(target_arch = "arm")]
 fn calculate(line: &[u8]) -> Option<i32> {
     let mut left: i32 = 0;
     let mut right: i32 = 0;
@@ -335,6 +358,7 @@ fn calculate(line: &[u8]) -> Option<i32> {
 }
 
 // 把输入的字节逐个发回去
+#[cfg(target_arch = "arm")]
 fn write_bytes(uart: &mut Uart1, data: &[u8]) {
     let mut idx = 0usize;
 
@@ -344,6 +368,7 @@ fn write_bytes(uart: &mut Uart1, data: &[u8]) {
     }
 }
 
+#[cfg(target_arch = "arm")]
 #[entry]
 fn main() -> ! {
     let dp = pac::Peripherals::take().unwrap(); // 获取外设访问权限
@@ -400,3 +425,6 @@ fn main() -> ! {
         key_sample_counter += 1;
     }
 }
+
+#[cfg(not(target_arch = "arm"))]
+fn main() {}

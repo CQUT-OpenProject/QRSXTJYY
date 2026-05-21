@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "EXP_2/Music2Beep",
-    "EXP_4/[Rust]SERIAL_TRANSMISSION",
+    "EXP/EXP_2/Music2Beep",
+    "EXP/EXP_4/[Rust]SERIAL_TRANSMISSION",
 ]
 resolver = "2"
