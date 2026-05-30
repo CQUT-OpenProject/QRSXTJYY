@@ -1,0 +1,11 @@
+[package]
+name = "software_clock"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "1.0"
+stm32f1xx-hal = { version = "0.10", features = ["stm32f103", "rt"] }
