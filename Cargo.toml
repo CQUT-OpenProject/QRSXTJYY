@@ -2,5 +2,6 @@
 members = [
     "EXP/EXP_2/Music2Beep",
     "EXP/EXP_4/[Rust]SERIAL_TRANSMISSION",
+    "EXP/EXP_5/[Rust]SOFTWARE_CLOCK",
 ]
 resolver = "2"
