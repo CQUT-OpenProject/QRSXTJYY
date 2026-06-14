@@ -1,0 +1,225 @@
+\documentclass{qrsxtjyyccp}
+
+\begin{document}
+\makefrontmatter
+\cqutBeginReportBody
+% Page 8.
+\phantomsection\label{sec:purpose}
+\vspace*{0.18cm}
+\sectiontitle{1}{课程设计的目的及要求}
+\redpara{（课程设计内容简介）}
+
+\phantomsection\label{sec:purpose-goal}
+\subsectiontitle{1.1}{课程设计目的}
+\itemline{1}{了解并熟悉常用电子元器件工作原理和功能特性。}
+\itemline{2}{信号感知电路数据：掌握交流电压、电流检测电路，继电器控制方法。}
+\itemline{3}{开发平台及工具使用：熟练运用 Keil MDK 软件进行单片机的 C 语言编程。}
+\itemline{4}{通信及通信协议：掌握串行通讯简单协议的程序设计思想和实现。}
+\itemline{5}{频率信号生成与感知：掌握基于 PWM 的频率波形生成与基于定时器捕捉功能的频率测量的程序设计思想和实现。}
+\itemline{6}{正弦波信号生成：掌握基于 DMA 传送的 DA 双路带幅值、相位调整的正弦波生成方法与实现。}
+\itemline{7}{交流信号采集：掌握基于定时启动、DMA 传送的 AD 转换程序设计与实现。}
+\itemline{8}{交流波形绘制：掌握交流电压、电流 LCD 屏幕绘制程序设计。}
+\itemline{9}{信号分析：掌握交流电参数计算算法与程序实现。}
+\itemline{10}{培养嵌入式系统设计、分析及展示能力。}
+
+\phantomsection\label{sec:purpose-req}
+\subsectiontitle{1.2}{课程设计要求}
+\itemline{1}{仔细阅读课程设计指导书，分析桌面用电电路原理；}
+\itemline{2}{利用 AI 帮助分析设计原理、步骤、实现；}
+\itemline{3}{设计频率测试信号；}
+\itemline{4}{设计修改频率测试信号参数通信协议；}
+\itemline{5}{设计频率测量程序；}
+\itemline{6}{设计用于交流电压电流模拟测试信号；}
+\itemline{7}{设计修改交流电压电流模拟测试信号参数通信协议；}
+\itemline{8}{设计交流采样程序；}
+\itemline{9}{曲线绘制；}
+\itemline{10}{设计电参数计算算法及程序；}
+\itemline{11}{串行通讯协议设计及串口助手调试显示；}
+\itemline{12}{系统联调；}
+\itemline{13}{系统答辩；}
+\itemline{14}{系统设计过程中相互交流、团队协作及其总结；}
+\itemline{15}{设计总结。}
+
+\clearpage
+
+% Page 9.
+\phantomsection\label{sec:analysis}
+\sectiontitle{2}{系统分析}
+\redpara{（说明你在课程设计中所选择的传感器、电路原理，信号生成原理，信号采集原理，信号分析，通讯协议等，主要包括功能分析和性能分析。）}
+
+\bluepara{\bfseries 【文档中蓝色部分是例子，请同学们根据自己对课程设计的理解和完成情况来写。以下同】}
+
+\phantomsection\label{sec:analysis-function}
+\subsectiontitle{2.1}{功能分析}
+\blueitemline{1}{频率测试信号生成}
+\vspace{0.18cm}
+\bluepara{（对 PWM 产生频率信号进行简单分析）}
+\vspace{0.88cm}
+\spacedblueitemline{2}{频率测量}
+\spacedblueitemline{3}{正弦波测试信号生成}
+\spacedblueitemline{4}{交流电压电流信号采集}
+\spacedblueitemline{5}{曲线绘制}
+\spacedblueitemline{6}{信号分析}
+\blueitemline{7}{通讯协议}
+\vspace{0.95cm}
+
+\phantomsection\label{sec:analysis-performance}
+\subsectiontitle{2.2}{性能需求分析}
+\lineblueitemline{1}{硬件电路需求分析。}
+\lineblueitemline{2}{测量需求分析。}
+\lineblueitemline{3}{曲线及参数显示分析。}
+\blueitemline{4}{调试设计分析。}
+
+\phantomsection\label{sec:analysis-algorithm}
+\subsectiontitle{2.3}{算法分析}
+\bluepara{对每一部分功能各自采用的方法及算法进行介绍。}
+
+\clearpage
+
+% Page 10.
+\phantomsection\label{sec:design}
+\sectiontitle{3}{系统设计}
+\redpara{（系统设计内容简介）}
+
+\phantomsection\label{sec:design-system}
+\subsectiontitle{3.1}{系统整体设计}
+\redpara{此部分介系统组成和主要模块。}
+
+\phantomsection\label{sec:design-hardware}
+\subsectiontitle{3.2}{硬件设计}
+\deepbluepara{（主要画出硬件部分模块的结构图，并进行相应的描述。）}
+
+\phantomsection\label{sec:design-software}
+\subsectiontitle{3.3}{软件设计}
+\redpara{（注意：该部分侧重方法及算法描述，附有一定的流程图，流程图最好用 Visio 画，代码粘贴到附件中）}
+
+\redpara{主要写软件设计思路，数据结构和程序流程图。再详细介绍软件设计过程中需要解决的关键问题的设计思想和方法。}
+
+\deepbluepara{【下面蓝色部分是例子，请根据自己的理解和设计方案来写。】}
+
+\clearpage
+
+% Page 11.
+\phantomsection\label{sec:frequency}
+\sectiontitle{4}{频率测量}
+\deepbluepara{频率测量包括......部分，使用......方法，有......步骤，完成......功能，......}
+
+\phantomsection\label{sec:frequency-generate}
+\subsectiontitle{4.1}{测试频率生成}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:frequency-measure}
+\subsectiontitle{4.2}{频率测量}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:frequency-protocol}
+\subsectiontitle{4.3}{通讯协议}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\clearpage
+
+% Page 12.
+\phantomsection\label{sec:adc}
+\sectiontitle{5}{交流ADC采样}
+\deepbluepara{交流采样主要是对信号调理后的桌面交流电信号定时 ADC 转换，并通过 DMA 传送，完成......，包括......部分，使用......方法，有......步骤，完成......功能，......}
+
+\phantomsection\label{sec:adc-generate}
+\subsectiontitle{5.1}{测试电压电流生成}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:adc-sampling}
+\subsectiontitle{5.2}{信号采集}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:adc-protocol}
+\subsectiontitle{5.3}{通信协议}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:adc-waveform}
+\subsectiontitle{5.4}{波形曲线绘制}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\clearpage
+
+% Page 13.
+\phantomsection\label{sec:calculation}
+\sectiontitle{6}{电参数计算与分析}
+\deepbluepara{（电参数计算分析内容简介）}
+
+\phantomsection\label{sec:calculation-method}
+\subsectiontitle{6.1}{常见电参数计算方法}
+\deepbluepara{常见电参数分析计算方法主要有：直接计算、DFT、FFT 等，具体分析各种算法、实现步骤......}
+
+\phantomsection\label{sec:calculation-program}
+\subsectiontitle{6.2}{程序实现}
+\deepbluepara{方法、参数计算、程序流程图、实现步骤、关键程序分析}
+
+\phantomsection\label{sec:calculation-comm}
+\subsectiontitle{6.3}{通信设计}
+\deepbluepara{串口通信如何显示参数，如何修改参数，程序流程图、实现步骤、关键程序分析}
+
+\clearpage
+
+% Page 14.
+\phantomsection\label{sec:debug}
+\sectiontitle{7}{系统调试}
+\deepbluepara{（系统调试方法及故障处理内容简介）}
+
+\phantomsection\label{sec:debug-protocol}
+\subsectiontitle{7.1}{通信协议分析}
+\deepbluepara{综合各模块通信协议并分析，建议绘制表格}
+
+\phantomsection\label{sec:debug-frequency}
+\subsectiontitle{7.2}{频率调试}
+\deepbluepara{模拟各种频率下的测试结果，需要串口助手参数修改、结果显示截图、分析}
+
+\phantomsection\label{sec:debug-ad}
+\subsectiontitle{7.3}{AD采样调试}
+\deepbluepara{模拟各种幅值、相位、频率下的测试结果、曲线、结果显示截图、分析}
+
+\phantomsection\label{sec:debug-calculation}
+\subsectiontitle{7.4}{电参数调试}
+\deepbluepara{模拟各种幅值、相位、频率下的测试结果、电参数计算结果、结果显示截图、分析}
+
+\phantomsection\label{sec:debug-online}
+\subsectiontitle{7.5}{联机调试}
+\deepbluepara{画出联机调试时的 miniSTM32 和 miniIO 的接线图，联机调试下的各种串口助手中结果、LCD 结果，显示数据精度、稳定性等分析}
+
+\clearpage
+
+% Page 15.
+\phantomsection\label{sec:summary}
+\sectiontitle{8}{总结与展望}
+\deepbluepara{必须涉及以下内容}
+
+\bluepara{（罗列在课程设计中曾经出现的问题、故障，进行现象描述和原因分析，说明处理和解决办法。尽可能地总结经验教训。）}
+
+\bluepara{（谈一谈心得体会，你认为在课程设计中，哪个问题最难？你认为哪些方面需要进一步改进？你认为软件编程中哪些问题比较困难？你有没有好的建议。）}
+
+\bluepara{（谈谈设计过程中和同学、老师交流情况，团结互助情况，团队精神。使用 AI 感受，包括 AI 对你的帮助、缺点等）}
+
+\clearpage
+
+% Page 16.
+\phantomsection\label{sec:appendix}
+\vspace*{0.17cm}
+{\noindent\heiti\bfseries\fontsize{16pt}{18pt}\selectfont 附件：程序代码\par}
+\vspace{0.45cm}
+\redpara{（该部分附原代码，代码中应有较详细的注释，为了省纸张代码设为单倍行距，尽量删除空行，五号字体、单倍行距），建议分文件（模块）组织，代码采用文本（不能截图），需要良好的缩进，采用如下排版风格：}
+
+\begin{lstlisting}[style=appendixcode,language=C]
+int main()
+{
+    if (x == y)
+    {
+        something();
+    }
+    else
+    {
+        otherthing();
+    }
+    return 0;
+}
+\end{lstlisting}
+
+\end{document}
