@@ -6,4 +6,14 @@ target/
 .DS_Store
 .siliconloop
 AGENTS.md
-*.docx
+
+# LaTeX temporary files
+CCP/report(template)/LaTex/*.aux
+CCP/report(template)/LaTex/*.fdb_latexmk
+CCP/report(template)/LaTex/*.fls
+CCP/report(template)/LaTex/*.log
+CCP/report(template)/LaTex/*.out
+CCP/report(template)/LaTex/*.synctex.gz
+CCP/report(template)/LaTex/*.bbl
+CCP/report(template)/LaTex/*.blg
+CCP/report(template)/LaTex/*.toc
